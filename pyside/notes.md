@@ -33,3 +33,40 @@ clang: warning: -framework CoreFoundation: 'linker' input unused [-Wunused-comma
 clang: error: cannot specify -o when generating multiple output files
 ```
 
+trying a two stage version for shits and giggles.  First trying to get the python thing compiled on its own: 
+
+```
+gcc `python2-config --cflags --ldflags` -o hello.o -c hello.c
+```
+
+which I *believe/hope* will get me an object file for the stuff from python to shove into the c library...  running generates: 
+
+```
+clang: warning: -lpython2.7: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -ldl: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -framework CoreFoundation: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-L/usr/local/opt/python@2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config' [-Wunused-command-line-argument]
+```
+
+and then to get the ultimate library:
+
+```
+gcc `python2-config --cflags --ldflags` -o hilib.o -c hilib.c
+```
+
+which throws more warnings: 
+
+```
+clang: warning: -lpython2.7: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -ldl: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -framework CoreFoundation: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-L/usr/local/opt/python@2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config' [-Wunused-command-line-argument]
+In file included from hilib.c:3:
+./hilib.h:4:17: warning: this function declaration is not a prototype [-Wstrict-prototypes]
+extern void pyhi();
+                ^
+                 void
+1 warning generated.
+```
+
+but it compiles, so who knows, maybe it'll work?
