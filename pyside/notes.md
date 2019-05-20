@@ -93,3 +93,5 @@ so back to pyside:
 
 and then copying that into my swift package folder hopefully will work? 
 (nope, still failing.)
+
+trying with xcode and a bridging header and shit, STILL failing.  xcode can't find py_finalize, py_initialize, OR pyhi.  ugh, apparently it isn't all compiled together. 
