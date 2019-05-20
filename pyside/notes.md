@@ -70,3 +70,17 @@ extern void pyhi();
 ```
 
 but it compiles, so who knows, maybe it'll work?
+
+creating the swift lib from that second tutorial above at [https://github.com/paultopia/cython-swift-experiment-swiftlib](https://github.com/paultopia/cython-swift-experiment-swiftlib) because I don't wanna muck around with sub-repos and such.
+
+----
+
+but swift run fails with: 
+
+```
+ld: warning: Could not find auto-linked library 'hilib'
+Undefined symbols for architecture x86_64:
+  "_pyhi", referenced from:
+      _main in main.swift.o
+ld: symbol(s) not found for architecture x86_64
+```

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "cython-swift-experiment-swiftlib",
+        "repositoryURL": "/Users/pauliglot/github/cython-swift-experiment-swiftlib",
+        "state": {
+          "branch": "master",
+          "revision": "3414551ae23a6593349630ddd7075bef446891a3",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
