@@ -14,5 +14,22 @@ seems to get it all compiled and runnable from the command line.  After some [st
 
 ## Stage 2: build an easy c library to put into swift:
 
-more or less working from [this](https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_C_libraries.html)
+more or less working from [this](https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_C_libraries.html) and [this](https://oleb.net/blog/2017/12/importing-c-library-into-swift/)
+
+putting everything in files entitled `hilib`
+
+compiling into an object file with 
+
+```
+gcc `python2-config --cflags --ldflags` -o hilib.o -c hello.c hilib.c
+```
+
+fails with: 
+
+```
+clang: warning: -lpython2.7: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -ldl: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -framework CoreFoundation: 'linker' input unused [-Wunused-command-line-argument]
+clang: error: cannot specify -o when generating multiple output files
+```
 
