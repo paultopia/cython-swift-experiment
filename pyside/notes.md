@@ -84,3 +84,12 @@ Undefined symbols for architecture x86_64:
       _main in main.swift.o
 ld: symbol(s) not found for architecture x86_64
 ```
+
+I'm going to try to create an archive file using instructions [here](https://stackoverflow.com/questions/2734719/how-to-compile-a-static-library-in-linux) rather than an object file, because that's what this [rust tutorial](https://www.bignerdranch.com/blog/building-an-ios-app-in-rust-part-1/) suggests.
+
+so back to pyside: 
+
+`ar rcs hilib.a hilib.o`
+
+and then copying that into my swift package folder hopefully will work? 
+(nope, still failing.)
